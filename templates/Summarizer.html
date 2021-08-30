@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Summarizer{% endblock title %}
+{% block form %}
+ <div class="container">
+
+            <h1>Summarize your text here</h1>
+            <p>Enter your <b>Text </b> below and click submit to find out...</p>
+            <form method="POST" ,action="/Summarizer" >  
+                  {% csrf_token %}                <!-- HERE IS WHERE YOU NEED TO ENTER THE API URL -->
+                <div class="form-group">
+                    <label for="Text">GIVE YOUR TEXT HERE</label>
+                    <textarea class="form-control"  rows="5" id="Text" name="Text">Please write your review here.</textarea>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>    
+        </div>
+    <div class=container-fluid>
+    <h2>HERE IS YOUR SUMMARY </h2>
+    <p><b>{{summary}}</b></p>
+    </div>
+{% endblock form %}
